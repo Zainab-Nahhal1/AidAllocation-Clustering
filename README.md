@@ -1,45 +1,97 @@
-# AidAllocation-Clustering
+# Country Data Clustering Project
 
-🌍 Fund Allocation Using Unsupervised Learning
+This project applies **Exploratory Data Analysis (EDA)**, **Principal Component Analysis (PCA)**, and **K-Means Clustering** to understand and group countries based on multiple socio-economic and health indicators.
 
-Problem:
-HELP International raised $10M to support countries in need. Using socio-economic and health indicators, clustering helps identify economically backward nations requiring urgent aid.
+---
 
+## 📘 Project Overview
+The goal of this project is to analyze a dataset of countries with attributes such as GDP per capita, income, life expectancy, child mortality, imports, exports, and more. By applying unsupervised learning techniques, we can identify distinct clusters that represent countries with similar economic and development profiles.
 
-📊 Dataset:
-Source: Kaggle
+---
 
+## ⚙️ Workflow Summary
 
-Features include: child_mort, income, gdpp, health, life_expec, inflation, exports, imports, total_fer.
+### 1. **Data Loading**
+- The dataset (e.g., `Country-data.csv`) should be placed inside the **Sample** folder.
+- It includes numerical features describing each country's economic and health status.
 
+### 2. **Data Preprocessing**
+- The column `country` is excluded for clustering.
+- All numeric features are normalized using **MinMaxScaler** to ensure fair comparison across variables.
 
-Approach:
+### 3. **Exploratory Data Analysis (EDA)**
+Typical EDA steps performed include:
+- Statistical summary (`describe()`)
+- Distribution plots and boxplots to detect outliers
+- Correlation heatmaps to understand feature relationships
 
-EDA: Found key patterns (low income, high child mortality & fertility, poor healthcare).
+### 4. **Dimensionality Reduction using PCA**
+- PCA reduces feature dimensions while retaining maximum variance.
+- It helps visualize and interpret country clusters in a 2D or 3D space.
 
-Feature Scaling & PCA: Normalized features & reduced to 2 components.
+### 5. **Clustering using K-Means**
+- The **K-Means** algorithm is used to group countries into clusters.
+- The optimal number of clusters (k) can be found using the **Elbow Method** or **Silhouette Score**.
 
+### 6. **Results Interpretation**
+Each cluster is analyzed to determine characteristics such as:
+- Economic status (high, medium, low income)
+- Life expectancy and health level
+- Trade activity (imports/exports)
 
-Clustering Models:
+Clusters can then be interpreted, for example, as:
+- **Cluster 0**: High-income developed nations  
+- **Cluster 1**: Developing nations with improving economy  
+- **Cluster 2**: Low-income or high child-mortality countries
 
-K-Means (k=3) → clear separation of backward, developing, and developed nations.
+---
 
-DBSCAN → identified noise/outliers.
+## 🧩 Folder Structure
 
-Hierarchical → dendrogram confirmed 3 groups.
+```
+Country_Data_Clustering_Project/
+│
+├── Source/
+│   ├── __init__.py
+│   └── main.py
+│
+├── Sample/             # Place your dataset here
+├── tests/
+│   └── test_sample.py
+│
+├── .gitignore
+├── Makefile
+└── README.md
+```
 
+---
 
-Insights:
+## 🚀 How to Run the Project
 
-Backward nations → low income, high child mortality, high fertility.
+### 1. **Install dependencies**
+```bash
+pip install pandas scikit-learn matplotlib seaborn
+```
 
-Developed nations → high GDP & income, strong healthcare.
+### 2. **Run the script**
+```bash
+make run
+```
 
-Africa dominated backward clusters; countries like Qatar & Luxembourg led the top tier.
+### 3. **Run tests**
+```bash
+make test
+```
 
+---
 
-Outcomes:
+## 🧠 Key Learnings
+- Gained understanding of unsupervised learning and clustering.
+- Learned how PCA reduces dimensions and improves visualization.
+- Practiced applying K-Means on real-world economic data.
 
-Showed how unsupervised ML can guide fund allocation & policy decisions.
+---
 
-K-Means, DBSCAN, and Hierarchical clustering gave consistent results.
+**Author:** Zainab Nahal  
+**Language:** Python  
+**Techniques:** EDA, PCA, K-Means Clustering
